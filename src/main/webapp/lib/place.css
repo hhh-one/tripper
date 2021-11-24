@@ -1,0 +1,177 @@
+@charset "UTF-8";
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "맑은 고딕", "고딕";
+  height: 100%;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+a {
+	all: unset;
+	text-decoration: none;
+}
+
+.root-wrapper {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.wrapper {
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 1000px;
+}
+
+/* header */
+header {
+  height: 100px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo_icon {
+  margin: 0 5px;
+  width: 10px;
+}
+
+.logo img {
+  width: 40px;
+}
+
+.logo_name {
+	cursor: pointer;
+	color: black;
+}
+
+.btn {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #5586EB;
+}
+
+.header_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  margin-top: 15px;
+}
+
+.user_container {
+  display: flex;
+  align-items: center;
+}
+
+.profile {
+  font-size: 20px;
+}
+
+li {
+  list-style: none;
+}
+
+.search {
+  margin-right: 10px;
+}
+
+.menu {
+  display: flex;
+  margin-top: 5px;
+}
+
+.menu li {
+  margin: 0 20px;
+  color: #8C8C8C;
+}
+
+.menu a {
+  all: unset;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #5586EB;
+}
+
+/* section */
+.zone_container {
+  display: flex;
+  justify-content: center;
+}
+
+.list_zone {
+  border-top: 2px solid black;
+  width: auto;
+  padding-bottom: 0;
+  padding-top: 10px;
+}
+
+.swiper-container2 {
+  position: relative;
+  overflow: hidden;
+  height: 56px;
+  padding: 1px 0 0 1px;
+  align-items: center;
+}
+
+.swiper-wrapper {
+  display: flex;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.swiper-slide {
+  position: relative;
+  width: 49px;
+  text-align: center;
+}
+
+.swiper-slide button {
+  background-color: transparent;
+  border: none;
+  border-radius: 16px;
+  padding: 4px 10px;
+}
+
+.swiper-slide button:hover {
+  background-color: #203f7e;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* footer */
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer_container {
+  text-align: center;
+  height: 60px;
+  background-color: #E4E4E4;
+}
+
+.footer_content {
+  font-size: 10px;
+  padding-top: 10px;
+}
