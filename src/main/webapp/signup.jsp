@@ -21,6 +21,7 @@
 
 <link rel="stylesheet" href="lib/signup.css">
 <title>TRIPPER: 회원가입</title>
+<script src="https://kit.fontawesome.com/29f46c9ddd.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="root-wrapper">
@@ -39,7 +40,7 @@
       <div class="wrapper">
         <div class="signup_container">
           <div class="signup_wrapper">
-            <form action="#" method="post">
+            <form action="http://localhost:8090/hyewon_free/UserServlet?cmd=signup" method="post">
           
               <div class="input_area">
                 <div class="signup_id">
@@ -57,7 +58,7 @@
                 <div class="signup_pw_check">
                   <h4>비밀번호 재확인</h4>
                   <span class="box">
-                    <input type="password" name="passwd" autofocus required placeholder="비밀번호">
+                    <input type="password" name="passwd_check" autofocus required placeholder="비밀번호">
                   </span>
                 </div>
                 <div class="signup_name">
@@ -86,7 +87,7 @@
                 <input id="submit" type="submit" name="submit" value="회원가입">
               </div>
               
-              </form>
+            </form>
           </div>
         </div>
       </div>

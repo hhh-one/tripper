@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -39,6 +40,7 @@
     <section>
       <div class="wrapper">
         <div class="login_container">
+        <form class="login_form" action="http://localhost:8090/hyewon_free/UserServlet?cmd=login" method="post">
           <div class="login_inner">
             <!-- id, passwd -->
             <div class="id_passwd_wrapper">
@@ -52,26 +54,19 @@
                 <div class="pw_icon">
                   <i class="fas fa-unlock-alt"></i>
                 </div>
-                <input type="password" name="pw" id="input_pw" placeholder="비밀번호" title="PASSWORD">
+                <input type="password" name="passwd" id="input_pw" placeholder="비밀번호" title="PASSWORD">
               </div>
             </div>
             
             <!-- 아이디, 비밀번호 에러 메세지 -->
-            <div class="login_error_wrapper" id="err_empty_id" style="display: none;">
-              <div class="error_message">
-                <strong>아이디</strong>
-                "를 입력해 주세요. "
-              </div>
-            </div>
-            <div class="login_error_wrapper" id="err_empty_pw" style="display: none;">
-              <div class="error_message">
-                <strong>비밀번호</strong>
-                "를 입력해 주세요. "
-              </div>
-            </div>
-            <div class="login_error_wrapper" id="err_common" style="display: none;">
-              <div class="error_message">
-              </div>
+            <div class="login_error_wrapper">
+              <%
+              	String error_message = (String)request.getAttribute("loginError");
+              	if (error_message == null) {
+              		error_message = "";
+              	}
+              %>
+              <%=error_message %>
             </div>
             
             <!-- 로그인 버튼 -->
@@ -83,10 +78,11 @@
             
             <!-- 회원가입 -->
             <div class="signup">
-              <button class="signup_btn" onclick="location.href='http://localhost:8090/hyewon_free/UserServlet?cmd=join'">아직 회원이 아니라면? <strong>회원가입</strong></button>
+              <a class="signup_btn" href="http://localhost:8090/hyewon_free/UserServlet?cmd=join">아직 회원이 아니라면? <strong>회원가입</strong></a>
             </div>
             
           </div>
+        </form>
         </div>
       </div>
     </section>
@@ -94,7 +90,7 @@
     <footer>
       <div class="footer_container">
           <div class="footer_content">
-          <b>NAME: </b>이혜원<br>
+          <b>NAME: </b><mytag:print></mytag:print><br>
           <b>TEL: </b>010-6277-2844<br>
           <b>EMAIL: </b>904lhw@kpu.ac.kr
         </div>

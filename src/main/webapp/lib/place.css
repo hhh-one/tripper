@@ -124,7 +124,7 @@ a:hover {
   padding-top: 10px;
 }
 
-.swiper-container2 {
+.swiper-container {
   position: relative;
   overflow: hidden;
   height: 56px;
@@ -136,6 +136,7 @@ a:hover {
   display: flex;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+  padding: 5px 0;
 }
 
 .swiper-slide {
@@ -144,16 +145,132 @@ a:hover {
   text-align: center;
 }
 
-.swiper-slide button {
+.swiper-slide a {
   background-color: transparent;
   border: none;
   border-radius: 16px;
   padding: 4px 10px;
 }
 
-.swiper-slide button:hover {
+.swiper-slide a:hover {
   background-color: #203f7e;
   color: #fff;
+  cursor: pointer;
+}
+
+.zone_box {
+  background-color: #F6F6F6;
+  width: 100%;
+  height: 450px;
+  border-radius: 10px;
+}
+
+.zone_list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 800px;
+}
+
+.place-card {
+  background-color: #fff;
+  border: 1px solid #555;
+  border-radius: 7px;
+  width: 150px;
+  height: 180px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.place-name {
+  font-size: 14px;
+  margin: 0;
+  line-height: 34px;
+  text-align: center;
+}
+
+.place-image {
+  width: 100%;
+  height: 80%;
+  border-radius: 0 7px 7px 0;
+}
+
+/* set-place-container */
+#my-place-section {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  margin: 0 auto;
+  z-index: 9999;
+}
+
+.set-place-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.place-list {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 7px;
+}
+
+.places {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 20px 30px;
+}
+
+.places li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  /* border: 1px solid #333; */
+  border-radius: 7px;
+  margin: 0 10px;
+}
+
+.access-place {
+  display: flex;
+  align-items: center;
+}
+
+.set-place-btn {
+  background-color: #203f7e;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 40px;
+  color: #fff;
+  margin: 20px 0;
+  padding: 0 60px;
+  font-weight: bold;
+}
+
+.set-place-btn i {
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.set-place-btn:hover {
+  background-color: #365dac;
+  cursor: pointer;
+}
+
+.cancel-place-btn {
+  display: none;
+  font-size: 40px;
+  margin: 0 10px;
+}
+
+.cancel-place-btn:hover {
+  color: red;
   cursor: pointer;
 }
 

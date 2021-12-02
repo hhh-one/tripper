@@ -20,8 +20,8 @@
 <link rel="apple-touch-icon" href="lib/trip.png">
 <link rel="short icon" type="image/x-icon" href="lib/trip.png">
 
-<link rel="stylesheet" href="lib/course.css">
-<title>TRIPPER - course</title>
+<link rel="stylesheet" href="lib/home.css">
+<title>TRIPPER</title>
 <script src="https://kit.fontawesome.com/29f46c9ddd.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -37,7 +37,7 @@
             <li class="search">
               <form action="#">
                 <input type="search" placeholder="Search">
-                <button class="btn"><i class="fas fa-search"></i></button>
+                <i class="fas fa-search"></i>
               </form>
             </li>
             <li class="my_page">
@@ -57,7 +57,16 @@
     </header>
   
     <section>
-      
+      <div class="wrapper">
+      	<div class="myInfo">
+      		
+      	</div>
+      	<div class="btn_home_login">
+      		<button class="logout_btn" onclick="location.href='http://localhost:8090/hyewon_free/UserServlet?cmd=home'">수정하기</button>
+      		<button class="logout_btn" onclick="location.href='http://localhost:8090/hyewon_free/UserServlet?cmd=logout'">로그아웃</button>
+      		<button class="delete_btn" onclick="location.href='http://localhost:8090/hyewon_free/UserServlet?cmd=home'">회원 탈퇴</button>
+      	</div>
+      </div>
     </section>
   
     <footer>

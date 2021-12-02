@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,20 +37,26 @@
             <li class="search">
               <form action="#">
                 <input type="search" placeholder="Search">
-                <button class="btn"><i class="fas fa-search"></i></button>
+                <i class="fas fa-search"></i>
               </form>
             </li>
+            <% if (session.getAttribute("isLogined") == "true") { %>
+            <li class="my_page">
+              <button class="btn" onclick="location.href='http://localhost:8090/hyewon_free/UserServlet?cmd=profile'"><i class="far fa-user-circle profile"></i></button>
+            </li>
+            <%} else { %>
             <li class="my_page">
               <button class="btn" onclick="location.href='http://localhost:8090/hyewon_free/UserServlet?cmd=login'"><i class="far fa-user-circle profile"></i></button>
             </li>
+            <%} %>
           </ul>
         </div>
   
         <div class="menu_container">
           <ul class="menu">
             <li id="home_menu"><a href="http://localhost:8090/hyewon_free/UserServlet?cmd=home">HOME</a></li>
-            <li><a href="http://localhost:8090/hyewon_free/UserServlet?cmd=place">PLACE</a></li>
-            <li><a href="http://localhost:8090/hyewon_free/UserServlet?cmd=course">COURSE</a></li>
+            <li><a href="http://localhost:8090/hyewon_free/PlaceServlet?cmd=place&place=seoul">PLACE</a></li>
+            <li><a href="http://localhost:8090/hyewon_free/UserServlet?cmd=course">MY COURSE</a></li>
           </ul>
         </div>
       </div>
@@ -75,7 +82,7 @@
     <footer>
       <div class="footer_container">
           <div class="footer_content">
-          <b>NAME: </b>이혜원<br>
+          <b>NAME: </b><mytag:print></mytag:print><br>
           <b>TEL: </b>010-6277-2844<br>
           <b>EMAIL: </b>904lhw@kpu.ac.kr
         </div>

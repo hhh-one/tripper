@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.*, tripper.domain.*"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +23,7 @@
 <link rel="stylesheet" href="lib/place.css">
 <title>TRIPPER - place</title>
 <script src="https://kit.fontawesome.com/29f46c9ddd.js" crossorigin="anonymous"></script>
+<script defer src="lib/placeList.js"></script>
 </head>
 <body>
 	<div class="root-wrapper">
@@ -48,8 +50,8 @@
         <div class="menu_container">
           <ul class="menu">
             <li id="home_menu"><a href="http://localhost:8090/hyewon_free/UserServlet?cmd=home">HOME</a></li>
-            <li><a href="http://localhost:8090/hyewon_free/UserServlet?cmd=place">PLACE</a></li>
-            <li><a href="http://localhost:8090/hyewon_free/UserServlet?cmd=course">COURSE</a></li>
+            <li><a href="http://localhost:8090/hyewon_free/PlaceServlet?cmd=place&place=seoul">PLACE</a></li>
+            <li><a href="http://localhost:8090/hyewon_free/UserServlet?cmd=course">MY COURSE</a></li>
           </ul>
         </div>
       </div>
@@ -59,73 +61,124 @@
       <div class="wrapper">
         <div class="zone_container">
           <div class="list_zone">
-            <div class="swiper-container2 type0" id="zoneArr">
+            <div class="swiper-container" id="zoneArr">
               <div class="swiper-wrapper">
                 <div class="swiper-slide" id="zone1">
-                  <button type="button">서울</button>
+                  <a type="button" href="http://localhost:8090/hyewon_free/PlaceServlet?cmd=place&place=seoul">서울</a>
                 </div>
                 <div class="swiper-slide" id="zone2">
-                  <button type="button">부산</button>
+                  <a type="button" href="http://localhost:8090/hyewon_free/PlaceServlet?cmd=place&place=busan">부산</a>
                 </div>
                 <div class="swiper-slide" id="zone3">
-                  <button type="button">대구</button>
+                  <a type="button">대구</a>
                 </div>
                 <div class="swiper-slide" id="zone4">
-                  <button type="button">인천</button>
+                  <a type="button">인천</a>
                 </div>
                 <div class="swiper-slide" id="zone5">
-                  <button type="button">광주</button>
+                  <a type="button">광주</a>
                 </div>
                 <div class="swiper-slide" id="zone6">
-                  <button type="button">대전</button>
+                  <a type="button">대전</a>
                 </div>
                 <div class="swiper-slide" id="zone7">
-                  <button type="button">울산</button>
+                  <a type="button">울산</a>
                 </div>
                 <div class="swiper-slide" id="zone8">
-                  <button type="button">세종</button>
+                  <a type="button">세종</a>
                 </div>
                 <div class="swiper-slide" id="zone9">
-                  <button type="button">경기</button>
+                  <a type="button">경기</a>
                 </div>
                 <div class="swiper-slide" id="zone10">
-                  <button type="button">강원</button>
+                  <a type="button">강원</a>
                 </div>
                 <div class="swiper-slide" id="zone11">
-                  <button type="button">충북</button>
+                  <a type="button">충북</a>
                 </div>
                 <div class="swiper-slide" id="zone12">
-                  <button type="button">충남</button>
+                  <a type="button">충남</a>
                 </div>
                 <div class="swiper-slide" id="zone13">
-                  <button type="button">전북</button>
+                  <a type="button">전북</a>
                 </div>
                 <div class="swiper-slide" id="zone14">
-                  <button type="button">전남</button>
+                  <a type="button">전남</a>
                 </div>
                 <div class="swiper-slide" id="zone15">
-                  <button type="button">경북</button>
+                  <a type="button">경북</a>
                 </div>
                 <div class="swiper-slide" id="zone16">
-                  <button type="button">경남</button>
+                  <a type="button">경남</a>
                 </div>
                 <div class="swiper-slide" id="zone17">
-                  <button type="button">제주</button>
+                  <a type="button">제주</a>
                 </div>
               </div>
             </div>
             <div class="zone_box">
-  
+              <ul class="zone_list">
+              	<%
+              		if (request.getAttribute("where").equals("seoul")) {
+              			List<SeoulVO> seoulList = (List<SeoulVO>)request.getAttribute("Places");
+              			for (SeoulVO vo : seoulList) {
+              	%>
+              	<li>
+                  <a href="#">
+                    <div class="place-card">
+                      <img src="<%=vo.getPicture() %>" alt="<%=vo.getPlace() %>" class="place-image">
+                      <p class="place-name"><%=vo.getPlace() %></p>
+                    </div>
+                  </a>
+                </li>
+              	<%
+              			}
+              		}
+              		else if (request.getAttribute("where").equals("busan")) {
+              			List<BusanVO> busanList = (List<BusanVO>)request.getAttribute("Places");
+              			for (BusanVO vo : busanList) {
+              	%>
+              	<li>
+                  <a href="#">
+                    <div class="place-card">
+                      <img src="<%=vo.getPicture() %>" alt="<%=vo.getPlace() %>" class="place-image">
+                      <p class="place-name"><%=vo.getPlace() %></p>
+                    </div>
+                  </a>
+                </li>
+                <%
+                		}
+              		}
+                %>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
-  
+    <section id="my-place-section">
+      <div class="set-place-container">
+        <div class="place-list">
+          <ul class="places">
+            <li id="first-place">1</li>
+            <li id="second-place">2</li>
+            <li id="third-place">3</li>
+          </ul>
+        </div>
+        <div class="access-place">
+          <div class="set-place-btn">
+            <p>마이 코스 지정하기<i class="fas fa-caret-up"></i></p>
+          </div>
+          <div class="cancel-place-btn">
+            <i class="far fa-times-circle"></i>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer>
       <div class="footer_container">
           <div class="footer_content">
-          <b>NAME: </b>이혜원<br>
+          <b>NAME: </b><mytag:print></mytag:print><br>
           <b>TEL: </b>010-6277-2844<br>
           <b>EMAIL: </b>904lhw@kpu.ac.kr
         </div>
